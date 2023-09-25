@@ -12,27 +12,26 @@ import java.util.List;
 public class SubscriptionServiceImplement implements ISubscriptionService {
 
     @Autowired
-     private ISubscriptionRepository uS;
+    private ISubscriptionRepository uS;
 
 
     @Override
     public void create(Subscription subscription) {
-         uS.save(subscription);
+        uS.save(subscription);
     }
 
     @Override
     public void  delete(int idSubscription) {
-         uS.deleteById(idSubscription);
+        uS.deleteById(idSubscription);
     }
 
     @Override
-    public List<Subscription> list(String name) {
-        return uS.findByName(name);
+    public List<Subscription> list() {
+        return uS.findAll();
     }
 
     @Override
     public List<String[]> querieSubscription() {
         return uS.quantitySubscriptionByUsers();
     }
-
 }
